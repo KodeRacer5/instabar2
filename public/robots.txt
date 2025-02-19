@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Image optimization
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Sitemaps
+Sitemap: https://insta-bar.com/sitemap.xml
