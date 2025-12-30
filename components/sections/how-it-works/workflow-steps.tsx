@@ -53,7 +53,7 @@ const steps = [
 
 export default function WorkflowSteps() {
   return (
-    <Section className="py-16 md:py-24">
+    <Section>
       <div className="max-w-container mx-auto">
         <div className="mb-12 text-center">
           <h2 className="text-3xl leading-[1.1] font-black sm:text-4xl md:text-5xl lg:text-6xl">

@@ -145,7 +145,7 @@ export default function PartnersPageClient() {
       <div className="relative z-10">
         <DockNavbar />
 
-        <Section className="py-16 md:py-24">
+        <Section>
           <div className="mx-auto max-w-5xl px-4">
             <div className="mb-12 text-center">
               <h1 className="mb-4 text-4xl font-bold md:text-5xl">

@@ -55,7 +55,7 @@ const kits = [
 
 export default function KitContents() {
   return (
-    <Section className="py-16 md:py-24">
+    <Section>
       <div className="max-w-container mx-auto">
         <div className="mb-12 text-center">
           <div className="mb-4">

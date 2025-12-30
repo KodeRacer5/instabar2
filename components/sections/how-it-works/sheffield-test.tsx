@@ -17,7 +17,7 @@ const steps = [
 
 export default function SheffieldTest() {
   return (
-    <Section className="py-16 md:py-24">
+    <Section>
       <div className="max-w-container mx-auto">
         <div className="mx-auto max-w-3xl">
           <div className="mb-4 text-center">

@@ -18,7 +18,7 @@ export default function Solution() {
   ];
 
   return (
-    <Section className="py-16 md:py-24">
+    <Section>
       <div className="max-w-container mx-auto">
         <div className="flex flex-col items-center gap-8 text-center">
           <div className="mb-4">

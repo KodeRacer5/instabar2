@@ -11,7 +11,7 @@ import GradientText from '@/src/components/ReactBits/TextAnimations/GradientText
 
 export default function ProductCTA() {
   return (
-    <Section className="py-16 md:py-24">
+    <Section>
       <div className="max-w-container mx-auto">
         {/* Glowing container - medium intensity */}
         <div className="group/cta relative">

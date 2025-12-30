@@ -34,7 +34,7 @@ const features = [
 
 export default function ProductOverview() {
   return (
-    <Section className="py-16 md:py-24">
+    <Section>
       {/* Heading - left aligned, same width as content below */}
       <div className="mb-12 flex justify-center px-6">
         <div className="w-[1350px] text-left">

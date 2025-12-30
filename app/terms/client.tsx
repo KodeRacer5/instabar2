@@ -70,7 +70,7 @@ export default function TermsPageClient() {
       <div className="relative z-10">
         <DockNavbar />
 
-        <section className="py-16 md:py-24">
+        <section className="py-12 md:py-16">
           <div className="max-w-container mx-auto px-4">
             <div className="mb-12 text-center">
               <h1 className="text-3xl leading-[1.1] font-black sm:text-4xl md:text-5xl lg:text-6xl">

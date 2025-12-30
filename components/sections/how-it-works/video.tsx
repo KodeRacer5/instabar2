@@ -15,7 +15,7 @@ export default function VideoSection({ youtubeId = 'gW5-lTEs23A' }: VideoSection
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <Section className="py-16 md:py-24">
+    <Section>
       <div className="mx-auto w-full max-w-7xl px-4">
         {/* Outer Flex Container - 40/60 split, percentage-based */}
         <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-[4%]">

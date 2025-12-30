@@ -22,7 +22,7 @@ const protocols = ['All-on-4', 'All-on-6', 'All-on-X', 'Zygomatic'];
 export default function CompatibilityMatrix() {
   return (
     <div className="hidden md:block">
-    <Section className="py-16 md:py-24">
+    <Section>
       <div className="max-w-container mx-auto">
         <div className="mb-12 text-center">
           <div className="mb-4">

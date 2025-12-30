@@ -6,7 +6,7 @@ import GradientText from '@/src/components/ReactBits/TextAnimations/GradientText
 
 export default function HowItWorksHero() {
   return (
-    <Section className="py-16 md:py-24">
+    <Section>
       <div className="max-w-container mx-auto">
         <div className="mb-4">
           <h1 className="text-3xl leading-[1.1] font-black sm:text-4xl md:text-5xl lg:text-6xl">

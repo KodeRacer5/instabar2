@@ -24,7 +24,7 @@ export default function Compatibility() {
   const protocols = ['All-on-4', 'All-on-6', 'All-on-X', 'Zygomatic'];
 
   return (
-    <Section className="bg-muted/30 py-16 md:py-24">
+    <Section className="bg-muted/30">
       <div className="max-w-container mx-auto">
         <div className="flex flex-col items-center gap-8 text-center">
           <div className="mb-4">
