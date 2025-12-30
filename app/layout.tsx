@@ -122,6 +122,14 @@ export default function RootLayout({
     <html lang="en" style={{ colorScheme: 'dark', backgroundColor: '#000000' }} className="dark">
       <head>
         <style dangerouslySetInnerHTML={{ __html: 'html,body{background:#000!important}' }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
       </head>
       <body
         className={`${inter.variable} ${syne.variable} ${dmSans.variable} ${spaceGrotesk.variable} bg-black antialiased`}
