@@ -1,0 +1,89 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# ===================
+# Dependencies
+# ===================
+node_modules/
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# ===================
+# Build outputs
+# ===================
+/.next/
+/out/
+/build/
+/dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# ===================
+# Testing
+# ===================
+/coverage/
+.nyc_output/
+
+# ===================
+# Environment files
+# NEVER commit these!
+# ===================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# ===================
+# IDE / Editor
+# ===================
+.idea/
+*.swp
+*.swo
+*~
+
+# ===================
+# OS files
+# ===================
+.DS_Store
+Thumbs.db
+
+# ===================
+# Debug logs
+# ===================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ===================
+# Secrets / Keys
+# NEVER commit these!
+# ===================
+*.pem
+*.key
+*.cert
+*.p12
+.npmrc
+.yarnrc
+
+# ===================
+# Vercel
+# ===================
+.vercel
+
+# ===================
+# Misc
+# ===================
+*.log
+*.tmp
+*.temp
+.cache/
+
+# ===================
+# Pro / Premium content
+# ===================
+/app/pro/
+/components/pro/
