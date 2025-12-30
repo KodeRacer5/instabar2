@@ -65,14 +65,14 @@ export default function ProductOverview() {
       </div>
 
       {/* Layout A: Image Left + Cards Right - Full width */}
-      <div className="flex items-center justify-center gap-8 px-6">
-        {/* Large Product Image */}
+      <div className="flex flex-col items-center justify-center gap-8 px-6 lg:flex-row">
+        {/* Large Product Image - hidden on mobile, shown on desktop */}
         <motion.div
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex items-center justify-center"
+          className="hidden items-center justify-center lg:flex"
         >
           <div
             className="relative h-[750px] w-[850px]"
