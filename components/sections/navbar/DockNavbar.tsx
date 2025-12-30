@@ -60,9 +60,7 @@ export default function DockNavbar() {
 
       {/* Mobile Mini Dock - visible only on mobile */}
       <header className="fixed top-0 right-0 left-0 z-50 flex justify-center px-2 pt-3 md:hidden print:hidden">
-        <nav className="flex items-center gap-1 rounded-2xl border border-blue-500/30 bg-gray-900/90 px-2 py-2 backdrop-blur-sm"
-          style={{ boxShadow: '0 0 20px rgba(59,130,246,0.2)' }}
-        >
+        <nav className="flex items-start gap-3">
           {mobileNavItems.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
@@ -70,14 +68,22 @@ export default function DockNavbar() {
               <button
                 key={item.href}
                 onClick={() => router.push(item.href)}
-                className={`flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-200 ${
-                  isActive
-                    ? 'border border-blue-500/50 bg-blue-500/20'
-                    : 'border border-transparent hover:bg-white/10'
-                }`}
+                className="flex flex-col items-center gap-1"
                 aria-label={item.label}
               >
-                <Icon className={`size-5 ${isActive ? 'text-white' : 'text-white/70'}`} />
+                <div
+                  className={`flex h-10 w-10 items-center justify-center rounded-xl border bg-gray-800/90 backdrop-blur-sm transition-all duration-200 ${
+                    isActive ? 'border-blue-500/70' : 'border-blue-500/50'
+                  }`}
+                  style={{
+                    boxShadow: isActive
+                      ? '0 0 30px rgba(59,130,246,0.4)'
+                      : '0 0 20px rgba(59,130,246,0.25)',
+                  }}
+                >
+                  <Icon className={`size-4 ${isActive ? 'text-white' : 'text-white/80'}`} />
+                </div>
+                <span className="text-[10px] font-medium text-white/70">{item.label}</span>
               </button>
             );
           })}
