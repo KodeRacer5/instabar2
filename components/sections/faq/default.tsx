@@ -119,10 +119,10 @@ export default function FAQ({
       answer: (
         <>
           <p className="text-muted-foreground mb-4 max-w-[580px]">
-            Actually, yes! I&apos;m always acively looking for beta testers of new features. If you
-            are interested in exchanging feedback for a discount, please contact me via{' '}
-            <a href={siteConfig.links.email} className="underline underline-offset-2">
-              email
+            Actually, yes! I&apos;m always actively looking for beta testers of new features. If you
+            are interested in exchanging feedback for a discount, please{' '}
+            <a href="/contact" className="underline underline-offset-2">
+              contact us
             </a>
             .
           </p>

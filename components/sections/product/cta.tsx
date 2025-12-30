@@ -109,9 +109,9 @@ export default function ProductCTA() {
                   className="border-white/20 text-white hover:border-blue-500/50 hover:bg-white/10"
                   asChild
                 >
-                  <a href={siteConfig.links.email}>
+                  <a href={siteConfig.nav.contact}>
                     <Mail className="mr-2 size-4" />
-                    Email Us
+                    Contact Us
                   </a>
                 </Button>
               </motion.div>
