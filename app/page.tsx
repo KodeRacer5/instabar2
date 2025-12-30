@@ -1,6 +1,6 @@
 'use client';
 
-import Galaxy from '@/src/components/ReactBits/Backgrounds/Galaxy';
+import ResponsiveGalaxy from '@/src/components/ReactBits/Backgrounds/ResponsiveGalaxy';
 
 import Compatibility from '../components/sections/compatibility/default';
 import CTA from '../components/sections/cta/default';
@@ -17,7 +17,7 @@ export default function Home() {
     <main className="bg-background text-foreground relative min-h-screen w-full pt-24">
       {/* Galaxy Background */}
       <div className="fixed inset-0 z-0">
-        <Galaxy
+        <ResponsiveGalaxy
           hueShift={200}
           saturation={0.8}
           speed={0.3}

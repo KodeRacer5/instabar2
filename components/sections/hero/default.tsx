@@ -13,8 +13,9 @@ import { Button } from '../../ui/button';
 export default function Hero() {
   return (
     <section className="relative w-full">
+      {/* Desktop Layout */}
       <div
-        className="relative w-full"
+        className="relative hidden w-full md:block"
         style={{
           height: '56.25vw',
           maxHeight: '100vh',
@@ -51,11 +52,11 @@ export default function Hero() {
             }}
           />
 
-          {/* Layer 4: Content */}
+          {/* Desktop Content */}
           <div className="relative flex h-full w-full items-start pt-32" style={{ zIndex: 10 }}>
-            <div className="w-full pr-6 pl-6 sm:pr-8 sm:pl-8 md:w-[60%] md:pr-0 md:pl-48 lg:w-[55%] lg:pl-[15rem] xl:pl-72">
-              <div className="mb-4 sm:mb-5 md:mb-6">
-                <h1 className="text-3xl leading-[1.1] font-black sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
+            <div className="w-[60%] pl-48 pr-0 lg:w-[55%] lg:pl-[15rem] xl:pl-72">
+              <div className="mb-6">
+                <h1 className="text-5xl leading-[1.1] font-black lg:text-6xl xl:text-7xl 2xl:text-8xl">
                   <BlurText
                     text="Insta-Bar Implant"
                     delay={100}
@@ -73,8 +74,8 @@ export default function Hero() {
                 </h1>
               </div>
 
-              <div className="mb-6 lg:mb-8">
-                <h2 className="text-lg leading-[1.3] font-medium text-gray-300 sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+              <div className="mb-8">
+                <h2 className="text-2xl leading-[1.3] font-medium text-gray-300 lg:text-3xl xl:text-4xl">
                   <BlurText
                     text="No flex. No shrinkage. No guesswork."
                     delay={75}
@@ -85,7 +86,7 @@ export default function Hero() {
                 </h2>
               </div>
 
-              <div className="flex flex-col items-start gap-6 sm:flex-row">
+              <div className="flex flex-row items-start gap-6">
                 <div className="inline-block">
                   <ClickSpark sparkColor="#3b82f6" sparkRadius={35} sparkCount={12}>
                     <Magnet padding={25} magnetStrength={1.2}>
@@ -113,15 +114,96 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-
-            {/* Right side spacer */}
-            <div className="hidden h-full md:block md:w-[40%] lg:w-[45%]" />
+            <div className="h-full w-[40%] lg:w-[45%]" />
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 transform animate-bounce">
+      {/* Mobile Layout */}
+      <div className="relative flex min-h-screen flex-col md:hidden">
+        {/* Mobile Product Image - top section */}
+        <div className="relative h-[40vh] w-full">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(/images/product/instabarbackground.png)`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              opacity: 0.7,
+              filter: 'brightness(0.7)',
+              maskImage: 'radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%)',
+              WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%)',
+            }}
+          />
+          {/* Gradient fade to content */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-32"
+            style={{
+              background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+            }}
+          />
+        </div>
+
+        {/* Mobile Content */}
+        <div className="relative z-10 -mt-16 flex-1 px-6 pb-24">
+          <div className="mb-5">
+            <h1 className="text-3xl leading-[1.1] font-black sm:text-4xl">
+              <BlurText
+                text="Insta-Bar Implant"
+                delay={100}
+                direction="top"
+                className="inline text-white"
+              />
+              <span className="inline"> </span>
+              <GradientText
+                colors={['#3b82f6', '#8b5cf6', '#22d3ee', '#3b82f6']}
+                animationSpeed={6}
+                className="inline"
+              >
+                Verification System
+              </GradientText>
+            </h1>
+          </div>
+
+          <div className="mb-8">
+            <h2 className="text-lg leading-[1.3] font-medium text-gray-300 sm:text-xl">
+              <BlurText
+                text="No flex. No shrinkage. No guesswork."
+                delay={75}
+                direction="bottom"
+                animateBy="words"
+                className="inline-block"
+              />
+            </h2>
+          </div>
+
+          <div className="flex flex-col items-stretch gap-4">
+            <ClickSpark sparkColor="#3b82f6" sparkRadius={35} sparkCount={12}>
+              <Button
+                className="w-full border-0 bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-5 text-lg font-semibold text-white shadow-2xl shadow-blue-600/20 hover:from-blue-500 hover:to-purple-500"
+                asChild
+              >
+                <a href={siteConfig.nav.product}>Learn More</a>
+              </Button>
+            </ClickSpark>
+
+            <Button
+              variant="outline"
+              className="w-full border-blue-500/50 bg-white/10 px-8 py-5 text-lg font-semibold text-white shadow-[0_0_25px_rgba(59,130,246,0.3)] hover:border-blue-500/70 hover:bg-white/15"
+              asChild
+            >
+              <a href={siteConfig.nav.howItWorks}>
+                <Play className="mr-2 size-5" />
+                Watch Video
+              </a>
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator - Desktop only */}
+      <div className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 transform animate-bounce md:block">
         <ChevronDown className="text-gray-600" size={20} />
       </div>
     </section>

@@ -27,7 +27,7 @@ import { Button } from '@/components/ui/button';
 import { Section } from '@/components/ui/section';
 import { getGuideContent } from '@/lib/guide-content';
 import { categories, type CategoryKey, getRelatedGuides } from '@/lib/guides-data';
-import Galaxy from '@/src/components/ReactBits/Backgrounds/Galaxy';
+import ResponsiveGalaxy from '@/src/components/ReactBits/Backgrounds/ResponsiveGalaxy';
 import BlurText from '@/src/components/ReactBits/TextAnimations/BlurText';
 import GradientText from '@/src/components/ReactBits/TextAnimations/GradientText';
 
@@ -165,7 +165,7 @@ export default function GuideTemplate({ slug, title, description, category }: Gu
         </div>
 
         <div className="fixed inset-0 z-0 print:hidden">
-          <Galaxy
+          <ResponsiveGalaxy
             hueShift={200}
             saturation={0.8}
             speed={0.3}

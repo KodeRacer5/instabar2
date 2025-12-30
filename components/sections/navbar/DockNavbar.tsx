@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 
 import type { DockItemData } from '@/src/components/ReactBits/Navigation/Dock';
 import Dock from '@/src/components/ReactBits/Navigation/Dock';
+import MobileNav from './MobileNav';
 
 export default function DockNavbar() {
   const router = useRouter();
@@ -43,8 +44,14 @@ export default function DockNavbar() {
   ];
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 px-4 pt-4 print:hidden">
-      <Dock items={navItems} />
-    </header>
+    <>
+      {/* Desktop Dock - hidden on mobile */}
+      <header className="fixed top-0 right-0 left-0 z-50 hidden px-4 pt-4 md:block print:hidden">
+        <Dock items={navItems} />
+      </header>
+
+      {/* Mobile Navigation */}
+      <MobileNav />
+    </>
   );
 }

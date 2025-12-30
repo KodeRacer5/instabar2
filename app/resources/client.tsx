@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react';
 
 import DockNavbar from '@/components/sections/navbar/DockNavbar';
 import { Input } from '@/components/ui/input';
-import Galaxy from '@/src/components/ReactBits/Backgrounds/Galaxy';
+import ResponsiveGalaxy from '@/src/components/ReactBits/Backgrounds/ResponsiveGalaxy';
 import SpotlightCard from '@/src/components/ReactBits/Cards/SpotlightCard';
 import BlurText from '@/src/components/ReactBits/TextAnimations/BlurText';
 
@@ -191,7 +191,7 @@ export default function ResourcesClient() {
     <main className="relative min-h-screen bg-black pt-24">
       {/* Galaxy Background */}
       <div className="fixed inset-0 z-0">
-        <Galaxy
+        <ResponsiveGalaxy
           hueShift={200}
           saturation={0.8}
           speed={0.3}

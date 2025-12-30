@@ -9,13 +9,13 @@ import ProductHero from '@/components/sections/product/hero';
 import KitContents from '@/components/sections/product/kit-contents';
 import ProductOverview from '@/components/sections/product/overview';
 import Specifications from '@/components/sections/product/specifications';
-import Galaxy from '@/src/components/ReactBits/Backgrounds/Galaxy';
+import ResponsiveGalaxy from '@/src/components/ReactBits/Backgrounds/ResponsiveGalaxy';
 
 export default function ProductPageClient() {
   return (
     <main className="bg-background text-foreground relative min-h-screen w-full pt-24">
       <div className="fixed inset-0 z-0">
-        <Galaxy
+        <ResponsiveGalaxy
           hueShift={200}
           saturation={0.8}
           speed={0.3}

@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 
 import Footer from '@/components/sections/footer/default';
 import DockNavbar from '@/components/sections/navbar/DockNavbar';
-import Galaxy from '@/src/components/ReactBits/Backgrounds/Galaxy';
+import ResponsiveGalaxy from '@/src/components/ReactBits/Backgrounds/ResponsiveGalaxy';
 import SpotlightCard from '@/src/components/ReactBits/Cards/SpotlightCard';
 import BlurText from '@/src/components/ReactBits/TextAnimations/BlurText';
 import GradientText from '@/src/components/ReactBits/TextAnimations/GradientText';
@@ -56,7 +56,7 @@ export default function TermsPageClient() {
   return (
     <main className="bg-background text-foreground relative min-h-screen w-full pt-24">
       <div className="fixed inset-0 z-0">
-        <Galaxy
+        <ResponsiveGalaxy
           hueShift={200}
           saturation={0.8}
           speed={0.3}

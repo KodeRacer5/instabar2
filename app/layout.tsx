@@ -1,6 +1,7 @@
 import '@/app/globals.css';
 
 import type { Metadata } from 'next';
+import Script from 'next/script';
 
 import { ThemeProvider } from '@/components/contexts/theme-provider';
 import BackToTop from '@/components/ui/back-to-top';
@@ -59,6 +60,56 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.svg',
     apple: '/apple-touch-icon.png',
+  },
+};
+
+// SiteNavigationElement schema for Google sitelinks
+const siteNavSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SiteNavigationElement',
+  name: 'Main Navigation',
+  hasPart: [
+    {
+      '@type': 'SiteNavigationElement',
+      name: 'Home',
+      url: 'https://insta-bar.com/',
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      name: 'Product',
+      url: 'https://insta-bar.com/product',
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      name: 'How It Works',
+      url: 'https://insta-bar.com/how-it-works',
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      name: 'Resources',
+      url: 'https://insta-bar.com/resources',
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      name: 'Contact',
+      url: 'https://insta-bar.com/contact',
+    },
+  ],
+};
+
+// Organization schema
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Insta-Bar',
+  url: 'https://insta-bar.com',
+  logo: 'https://insta-bar.com/images/logo.png',
+  description: siteConfig.description,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'San Diego',
+    addressRegion: 'CA',
+    addressCountry: 'US',
   },
 };
 
