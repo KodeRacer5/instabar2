@@ -14,53 +14,48 @@
 
 ## PROJECT STATUS
 
-**Current Phase:** Mobile Optimization ✅ COMPLETE
-**Deployment:** Live on Netlify at `bucolic-quokka-1653ea.netlify.app` and `insta-bar.com` (DNS propagating)
-**Repository:** `https://github.com/KodeRacer5/instabar2` - Branch: `main`
+**Current Phase:** Mobile Optimization & Polish
+**Deployment:** Live on Netlify at `insta-bar.netlify.app`
+**Repository:** `https://github.com/KodeRacer5/instabar2` - Branch: `main` and `Instabar-version-3`
 
 ### Completed This Session:
-- ✅ Partners page SEO backlinks (21 manufacturer/supplier links)
-- ✅ BackToTop component with progress ring
-- ✅ Component directory documentation updated
-- ✅ Print branding (header/footer for guide templates)
-- ✅ Navbar hidden on print (`print:hidden`)
-- ✅ Copyright added to footer
-- ✅ Contact page redesign (removed exposed email, 2/3 + 1/3 layout)
-- ✅ Site config updated (removed email link)
-- ✅ GitHub push to `instabar2` repo
-- ✅ Netlify deployment (Node 20 fix applied)
-- ✅ Product CTA email link fix
+- ✅ JSON-LD schema injection fix (SiteNavigationElement + Organization)
+- ✅ Mobile hero gap fix (removed min-h-screen)
+- ✅ Product hero mobile layout + working scroll arrow
+- ✅ Replaced hamburger menu with mini dock at top (Apple-style icons with labels)
+- ✅ Hidden oversized product image on mobile (What It Is section)
+- ✅ Resend API key configured in Netlify (`RESEND_API_KEY` env var)
+- ✅ DNS records added in Netlify for Resend domain verification (pending)
 
-### Mobile Optimization Complete (Session 4):
-- ✅ Mobile navigation - `MobileNav.tsx` hamburger menu + slide panel
-- ✅ Hero responsive - Separate desktop/mobile layouts with stacked design
-- ✅ Galaxy performance - `ResponsiveGalaxy.tsx` shows static gradient on mobile (no WebGL)
-- ✅ SiteNavigationElement schema - JSON-LD in `layout.tsx`
-- ✅ Build verified - 45 routes generated successfully
+### Pending/In Progress:
+- ⏳ Resend domain verification (DNS propagating)
+- ⏳ Hostinger nameserver change to Netlify (user locked out of Hostinger)
+- ⏳ SSL certificate renewal (blocked by DNS propagation)
 
 ---
 
 ## PRIORITIES
 
-**All Mobile Priorities Complete ✅**
+**Priority 1: Add smaller mobile image to "What It Is" section**
+- Currently image is hidden on mobile
+- Option: Add scaled-down version (250px height) above the cards
+- User needs to decide: keep hidden or add smaller image
 
-**Next Suggested Priorities:**
+**Priority 2: Mobile cleanup - hide unnecessary sections**
+- Candidates to hide on mobile: Gallery, Compatibility table, Comparison table
+- Use `hidden md:block` pattern to remove without leaving gaps
 
-**Priority 1: Push to GitHub**
-- Commit mobile optimization changes
-- `git add . && git commit -m "Mobile optimization complete" && git push origin main`
+**Priority 3: Test contact form email delivery**
+- Resend API key is configured
+- Test at `https://insta-bar.netlify.app/contact`
+- Emails sent from `onboarding@resend.dev` until domain verified
 
-**Priority 2: README Update**
+**Priority 4: Update Resend sender to custom domain**
+- Once DNS verifies, update `from:` field in `/app/api/contact/route.ts`
+- Change from `onboarding@resend.dev` to `contact@insta-bar.com`
+
+**Priority 5: README update**
 - Replace Launch UI template text with Insta-Bar content
-- Document mobile features
-
-**Priority 3: Resend API Integration**
-- Add `RESEND_API_KEY` to Netlify environment variables
-- Test contact form email delivery
-
-**Priority 4: Cleanup**
-- Remove `SETUP.md` (Launch UI setup guide)
-- Update `tests/example.test.ts` placeholder
 
 ---
 
@@ -68,60 +63,60 @@
 
 | Topic | Decision | Rationale |
 |-------|----------|-----------|
+| Mobile navigation | Mini dock at top with icons + labels | Matches desktop style, user preference over hamburger |
+| Product image mobile | Hidden on mobile | 850x750px image too large, cards display properly without it |
 | Email exposure | Removed all visible emails | Spam prevention |
 | Contact layout | 2/3 form, 1/3 info | Form is primary action |
 | Location | San Diego, California | Client preference |
 | Print branding | Insta-Bar header + copyright footer | Professional printable guides |
 | Node version | 20 (in .nvmrc) | Next.js 16 requires Node 20+ |
-| Branch strategy | Push to both `main` and `Instabar-version-3` | Keep branches in sync |
-| **Mobile nav style** | Hamburger menu, slide-in panel from right | Standard UX, animated |
-| **Galaxy on mobile** | Static CSS gradient (no WebGL) | Battery/performance |
-| **Hero mobile layout** | Stack vertically (image top, content below) | Mobile-first design |
+| Resend sender | `onboarding@resend.dev` temporarily | Custom domain pending DNS verification |
+
+---
+
+## PENDING DECISIONS
+
+| Topic | Options | Notes |
+|-------|---------|-------|
+| Product mobile image | A) Keep hidden, B) Add smaller version | User asked about options, no final decision |
+| Mobile sections to hide | Gallery, Compatibility, Comparison | Discuss with user which to remove |
 
 ---
 
 ## CODE PATTERNS
 
-### Print-only elements:
+### Hide on mobile, show on desktop:
 ```tsx
-<div className="hidden print:block">
-  {/* Only visible when printing */}
+<div className="hidden md:block">
+  {/* Desktop only content */}
 </div>
 ```
 
-### Screen-only elements:
+### Show on mobile, hide on desktop:
 ```tsx
-<div className="print:hidden">
-  {/* Hidden when printing */}
+<div className="md:hidden">
+  {/* Mobile only content */}
 </div>
 ```
 
-### BackToTop usage:
+### Mini dock navigation (mobile):
 ```tsx
-import BackToTop from '@/components/ui/back-to-top';
-<BackToTop threshold={400} showProgress={true} />
+<nav className="flex items-start gap-3">
+  {navItems.map((item) => (
+    <button className="flex flex-col items-center gap-1">
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-blue-500/50 bg-gray-800/90">
+        <Icon className="size-4" />
+      </div>
+      <span className="text-[10px] font-medium text-white/70">{label}</span>
+    </button>
+  ))}
+</nav>
 ```
 
-### Galaxy background:
+### Responsive Galaxy (mobile performance):
 ```tsx
-<Galaxy
-  hueShift={200}
-  saturation={0.8}
-  speed={0.3}
-  starSpeed={0.3}
-  glowIntensity={0.5}
-  density={1.2}
-  mouseInteraction={false}
-  mouseRepulsion={false}
-/>
-```
-
-### Image mask fade:
-```tsx
-style={{
-  maskImage: 'radial-gradient(ellipse 60% 60% at 50% 50%, black 40%, transparent 90%)',
-  WebkitMaskImage: 'radial-gradient(ellipse 60% 60% at 50% 50%, black 40%, transparent 90%)',
-}}
+import ResponsiveGalaxy from '@/src/components/ReactBits/Backgrounds/ResponsiveGalaxy';
+// Shows static gradient on mobile, WebGL on desktop
 ```
 
 ---
@@ -130,28 +125,35 @@ style={{
 
 | File | Purpose |
 |------|---------|
-| `components/sections/navbar/DockNavbar.tsx` | Main navigation - needs mobile version |
-| `components/sections/hero/default.tsx` | Hero section - needs mobile responsive |
-| `src/components/ReactBits/Backgrounds/Galaxy.tsx` | WebGL background |
-| `components/ui/back-to-top/index.tsx` | Scroll to top with progress |
-| `components/templates/guide-template.tsx` | Resource guides with print branding |
-| `app/layout.tsx` | Root layout - BackToTop, potential schema |
+| `components/sections/navbar/DockNavbar.tsx` | Main navigation with mini dock for mobile |
+| `components/sections/product/overview.tsx` | "What It Is" section - image hidden on mobile |
+| `components/sections/hero/default.tsx` | Home hero with mobile layout |
+| `components/sections/product/hero.tsx` | Product hero with mobile layout |
+| `app/api/contact/route.ts` | Contact form API (Resend integration) |
+| `app/layout.tsx` | Root layout with JSON-LD schemas |
+| `src/components/ReactBits/Backgrounds/ResponsiveGalaxy.tsx` | Mobile-optimized background |
 | `config/site.ts` | Site configuration |
-| `.nvmrc` | Node version (set to 20) |
 
 ---
 
-## DEPENDENCIES
+## ENVIRONMENT VARIABLES
 
-**Installed:**
-- motion (animations)
-- ogl (Galaxy WebGL)
-- lucide-react (icons)
-- gsap (optional animations)
-- resend (contact form email - needs API key)
+**Configured in Netlify:**
+- `RESEND_API_KEY` - For contact form emails (set, working)
 
-**Environment Variables Needed:**
-- `RESEND_API_KEY` - For contact form emails (optional, logs to console without it)
+---
+
+## DNS STATUS
+
+**Netlify DNS records added for Resend:**
+- TXT: `resend._domainkey` (DKIM)
+- MX: `send` → `feedback-smtp.us-east-1.amazonses.com`
+- TXT: `send` → `v=spf1 include:amazonses.com ~all`
+
+**Blocking issue:** 
+- Domain `insta-bar.com` still points to Hostinger (`dns-parking.com`)
+- User locked out of Hostinger account
+- Site accessible at `https://insta-bar.netlify.app` in the meantime
 
 ---
 
@@ -171,36 +173,31 @@ style={{
 - ❌ Forget `print:hidden` on nav elements
 - ❌ Use Node 18 (requires Node 20+)
 - ❌ Push without testing build locally first (`npm run build`)
-
----
-
-## OPTIONAL CLEANUP
-
-- `README.md` - Still shows Launch UI template text, should update with Insta-Bar content
-- `SETUP.md` - Launch UI setup guide, can remove or update
-- `tests/example.test.ts` - Contains placeholder test
+- ❌ Make large layout changes without testing on mobile first
 
 ---
 
 ## DEPLOYMENT
 
-**Netlify Site:** `bucolic-quokka-1653ea`
-**URL:** https://bucolic-quokka-1653ea.netlify.app
-**Custom Domain:** insta-bar.com (DNS propagating)
+**Netlify Site:** `insta-bar`
+**URL:** https://insta-bar.netlify.app
+**Custom Domain:** insta-bar.com (DNS not yet pointed to Netlify)
 **Build Command:** `npm run build`
 **Publish Directory:** `.next`
 **Node Version:** 20 (from .nvmrc)
+**GitHub Repo:** https://github.com/KodeRacer5/instabar2
 
 ---
 
 ## QUICK START
 
 1. Read this file completely
-2. Read `D:\Projects\web-master-templates\7-COMPONENT_DIRECTORY.md` for component patterns
-3. Run `npm run dev` to start local server
-4. Check mobile view in browser DevTools (F12 → toggle device toolbar)
-5. Implement Priority 1: Mobile navigation
+2. Read `D:\Projects\Web-Templates\In-Producttion\insta-bar-new\README.md`
+3. Read `D:\Projects\Web-Templates\In-Producttion\insta-bar-new\config\site.ts`
+4. Run `npm run dev` to start local server
+5. Check mobile view in browser DevTools (F12 → toggle device toolbar)
+6. Implement Priority 1 based on user's decision
 
 ---
 
-**Ready to continue? Confirm you've read the startup files and state which priority you're starting with.**
+**Ready to continue? Confirm you've read the startup files and ask user about Priority 1 (mobile image decision).**

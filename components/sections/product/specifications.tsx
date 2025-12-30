@@ -62,7 +62,8 @@ export default function Specifications() {
           className="mx-auto max-w-2xl"
         >
           <div className="bg-card/80 border-border/50 overflow-hidden rounded-2xl border backdrop-blur-sm">
-            <table className="w-full">
+            <div className="overflow-x-auto">
+            <table className="w-full min-w-[400px]">
               <tbody>
                 {specs.map((spec, index) => (
                   <motion.tr
@@ -79,6 +80,7 @@ export default function Specifications() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </motion.div>
       </div>

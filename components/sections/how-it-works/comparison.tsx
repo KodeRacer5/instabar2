@@ -50,7 +50,8 @@ export default function Comparison() {
             boxShadow: 'inset 0 0 30px rgba(79, 70, 229, 0.1), 0 0 40px rgba(139, 92, 246, 0.1)',
           }}
         >
-          <table className="w-full">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-[500px]">
             <thead className="border-b border-white/10 bg-gradient-to-r from-blue-600/20 to-purple-600/20">
               <tr>
                 <th className="px-6 py-4 text-left font-semibold text-white">Factor</th>
@@ -81,6 +82,7 @@ export default function Comparison() {
               ))}
             </tbody>
           </table>
+          </div>
         </motion.div>
       </div>
     </Section>

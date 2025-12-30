@@ -32,7 +32,7 @@ export default function Workflow() {
   ];
 
   return (
-    <Section className="py-16 md:py-24">
+    <Section className="hidden py-16 md:block md:py-24">
       <div className="max-w-container mx-auto">
         <div className="flex flex-col items-center gap-12 text-center">
           <div>

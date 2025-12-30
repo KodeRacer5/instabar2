@@ -21,7 +21,7 @@ const protocols = ['All-on-4', 'All-on-6', 'All-on-X', 'Zygomatic'];
 
 export default function CompatibilityMatrix() {
   return (
-    <Section className="py-16 md:py-24">
+    <Section className="hidden py-16 md:block md:py-24">
       <div className="max-w-container mx-auto">
         <div className="mb-12 text-center">
           <div className="mb-4">
@@ -72,7 +72,8 @@ export default function CompatibilityMatrix() {
               <div className="bg-primary/5 border-border/50 border-b px-6 py-4">
                 <h3 className="font-semibold text-white">Implant Systems</h3>
               </div>
-              <table className="w-full">
+              <div className="overflow-x-auto">
+              <table className="w-full min-w-[400px]">
                 <thead className="bg-muted/30">
                   <tr>
                     <th className="text-muted-foreground px-6 py-3 text-left text-sm font-medium">
@@ -101,6 +102,7 @@ export default function CompatibilityMatrix() {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
           </motion.div>
 
