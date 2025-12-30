@@ -120,7 +120,7 @@ export default function Hero() {
       </div>
 
       {/* Mobile Layout */}
-      <div className="relative flex min-h-screen flex-col md:hidden">
+      <div className="relative flex flex-col md:hidden">
         {/* Mobile Product Image - top section */}
         <div className="relative h-[40vh] w-full">
           <div
@@ -146,7 +146,7 @@ export default function Hero() {
         </div>
 
         {/* Mobile Content */}
-        <div className="relative z-10 -mt-16 flex-1 px-6 pb-24">
+        <div className="relative z-10 -mt-16 px-6 pb-12">
           <div className="mb-5">
             <h1 className="text-3xl leading-[1.1] font-black sm:text-4xl">
               <BlurText
